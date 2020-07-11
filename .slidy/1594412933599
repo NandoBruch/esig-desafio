@@ -1,0 +1,4 @@
+lib/app/splah/splah_page.dart
+test/app/splah/splah_page_test.dart
+lib/app/splah/splah_controller.dart
+test/app/splah/splah_controller_test.dart
