@@ -1,11 +1,11 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'repositories/user_repository.dart';
+import 'repositories/posts_repository.dart';
 
 class AppController {
-  var rootPath = '/';
+  var rootPath = '/home';
 
   Future<bool> initApp() async {
-    UserRepository userRepository = Modular.get();
+    PostRepository userRepository = Modular.get();
 
     await Future.wait([
       userRepository.init(),

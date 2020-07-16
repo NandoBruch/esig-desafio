@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-import 'models/user_model.dart';
+import 'models/post_model.dart';
 
 class Repository {
   Repository() {
@@ -8,7 +8,7 @@ class Repository {
   }
 
   Future<bool> _init() async {
-    Hive.registerAdapter(UserModelAdapter());   
+    Hive.registerAdapter(PostModelAdapter());
 
     return true;
   }

@@ -1,0 +1,4 @@
+lib/app/repositories/models/posts_model/posts_model_page.dart
+test/app/repositories/models/posts_model/posts_model_page_test.dart
+lib/app/repositories/models/posts_model/posts_model_controller.dart
+test/app/repositories/models/posts_model/posts_model_controller_test.dart
