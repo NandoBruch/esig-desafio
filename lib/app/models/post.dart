@@ -8,13 +8,14 @@ class Post {
   String body;
   Status status = Status.neutral;
 
-  Post(
-      {this.userId,
-      this.userName,
-      this.id,
-      this.title,
-      this.body,
-      this.status});
+  Post({
+    this.userId,
+    this.userName,
+    this.id,
+    this.title,
+    this.body,
+    this.status,
+  });
 
   Post.fromJson(Map<String, dynamic> json) {
     userId = json['userId'];

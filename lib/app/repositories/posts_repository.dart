@@ -6,7 +6,6 @@ class PostRepository {
 
   Future<bool> init() async {
     try {
-      Hive.deleteBoxFromDisk('post');
       var userBox = await Hive.openBox('post');
 
       if (userBox.length == 0) {

@@ -31,31 +31,40 @@ abstract class _FeedControllerBase with Store {
   @observable
   bool rate = true;
 
-  getPosts() async {
-    // if (ps.post.posts == null) {
-    var res = await ds.getPosts();
-    res.data.forEach((r) async {
-      var res = await ds.getUser(id: r['userId']);
-      this.posts.add(
-            Post(
-              userId: r['userId'],
-              userName: res.data['name'],
-              id: r['id'],
-              title: r['title'],
-              body: r['body'],
-              status: Status.neutral,
-            ),
-          );
-      // ps.post.posts = this.posts;
-      // ps.post.save();
+  Future<void> getPosts() async {
+    if (ps.post.posts == null) {
+      var res = await ds.getPosts();
+      List<dynamic> list = res.data;
+      for (var r in list) {
+        var res = await ds.getUser(id: r['userId']);
+        posts.add(
+          Post(
+            userId: r['userId'],
+            userName: res.data['name'],
+            id: r['id'],
+            title: r['title'],
+            body: r['body'],
+            status: Status.neutral,
+          ),
+        );
+      }
+      posts.shuffle();
+      print(posts);
+      var aux = List<dynamic>();
+      posts.forEach((e) {
+        aux.add(aux);
+      });
+      ps.post.posts = aux;
+      ps.post.save();
+    }
+    ps.post.posts.forEach((e) {
+      posts.add(e);
     });
-    this.posts.shuffle();
-    // } else
-    // this.posts = ps.post.posts;
   }
 
   @action
   like(id) {
+    print(posts);
     var index = posts.indexWhere((e) => e.id == id);
     if (posts[index].status == Status.liked) {
       posts[index].status = Status.neutral;
